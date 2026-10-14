@@ -1,0 +1,42 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Icon from '../components/Icon.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<Layout title={title} description={description}>
+  <Header />
+
+  <main id="main-content" class="flex-1 max-w-4xl mx-auto w-full px-margin-sm md:px-margin-lg py-12 md:py-16">
+    <div class="mb-6">
+      <a href="/" class="inline-flex items-center gap-1.5 font-label-md text-xs text-secondary hover:text-primary transition-colors">
+        <Icon name="arrow_back" size={16} />
+        <span>Volver al inicio</span>
+      </a>
+    </div>
+
+    <article class="bg-surface-container-lowest p-6 md:p-12 rounded-3xl shadow-clinical border-clinical prose prose-slate max-w-none">
+      <div class="mb-6 p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs md:text-sm">
+        <strong class="font-bold flex items-center gap-1.5">
+          <Icon name="info" size={18} />
+          <span>Texto provisional pendiente de revisión legal:</span>
+        </strong>
+        <p class="mt-1">
+          Este documento constituye un borrador informativo para la clínica. Debe ser revisado y adaptado según la legislación aplicable en la República de El Salvador.
+        </p>
+      </div>
+
+      <slot />
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

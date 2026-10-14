@@ -1,0 +1,136 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section id="formulario-cita" class="px-margin-sm md:px-margin-lg py-8 md:py-16 max-w-4xl mx-auto w-full">
+  <div class="bg-surface-container-lowest p-6 md:p-10 rounded-3xl shadow-clinical border-clinical flex flex-col gap-6">
+    <div class="flex flex-col gap-1.5 text-center max-w-xl mx-auto">
+      <div class="inline-flex items-center justify-center gap-1.5 self-center px-3 py-1 rounded-full bg-secondary-container text-primary-container text-xs font-label-md">
+        <Icon name="verified" size={16} />
+        <span>Solicitud Directa y Sin Esperas</span>
+      </div>
+      <h2 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary">
+        Pide tu cita odontológica
+      </h2>
+      <p class="font-body-md text-xs md:text-sm text-on-surface-variant">
+        Completa tus datos para coordinar tu consulta directamente a través de nuestro WhatsApp oficial.
+      </p>
+    </div>
+
+    <form id="form-cita" class="flex flex-col gap-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Nombre -->
+        <div class="flex flex-col gap-1.5">
+          <label for="cita-nombre" class="font-label-md text-xs text-primary font-semibold flex items-center gap-1">
+            <span>Nombre completo</span>
+            <span class="text-error">*</span>
+          </label>
+          <input
+            type="text"
+            id="cita-nombre"
+            name="nombre"
+            required
+            autocomplete="name"
+            placeholder="Ej. María Sánchez"
+            class="w-full h-12 px-4 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface placeholder:text-secondary/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all"
+          />
+        </div>
+
+        <!-- Teléfono -->
+        <div class="flex flex-col gap-1.5">
+          <label for="cita-telefono" class="font-label-md text-xs text-primary font-semibold flex items-center gap-1">
+            <span>Teléfono / WhatsApp de contacto</span>
+            <span class="text-error">*</span>
+          </label>
+          <input
+            type="tel"
+            id="cita-telefono"
+            name="telefono"
+            required
+            autocomplete="tel"
+            placeholder="Ej. +503 7000-0000"
+            class="w-full h-12 px-4 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface placeholder:text-secondary/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all"
+          />
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Servicio -->
+        <div class="flex flex-col gap-1.5">
+          <label for="servicio-select" class="font-label-md text-xs text-primary font-semibold">
+            Servicio de interés
+          </label>
+          <select
+            id="servicio-select"
+            name="servicio"
+            class="w-full h-12 px-3.5 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all"
+          >
+            <option value="consulta-general">Consulta dental diagnóstica</option>
+            {clinica.servicios.map((s) => (
+              <option value={s.id}>{s.nombre}</option>
+            ))}
+          </select>
+        </div>
+
+        <!-- Día preferido -->
+        <div class="flex flex-col gap-1.5">
+          <label for="cita-fecha" class="font-label-md text-xs text-primary font-semibold">
+            Día de preferencia
+          </label>
+          <input
+            type="date"
+            id="cita-fecha"
+            name="fecha"
+            class="w-full h-12 px-3.5 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all"
+          />
+        </div>
+
+        <!-- Horario preferido -->
+        <div class="flex flex-col gap-1.5">
+          <label for="cita-horario" class="font-label-md text-xs text-primary font-semibold">
+            Horario conveniente
+          </label>
+          <select
+            id="cita-horario"
+            name="horario"
+            class="w-full h-12 px-3.5 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all"
+          >
+            <option value="Cualquier horario">Cualquier horario disponible</option>
+            <option value="Mañana (8:00 AM – 12:00 PM)">Mañana (8:00 AM – 12:00 PM)</option>
+            <option value="Tarde (1:00 PM – 5:00 PM)">Tarde (1:00 PM – 5:00 PM)</option>
+            <option value="Sábado por la mañana">Sábado por la mañana</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Comentario opcional -->
+      <div class="flex flex-col gap-1.5">
+        <label for="cita-comentario" class="font-label-md text-xs text-primary font-semibold">
+          Comentario o motivo de consulta (opcional)
+        </label>
+        <textarea
+          id="cita-comentario"
+          name="comentario"
+          rows="3"
+          placeholder="Cuéntanos brevemente si presentas dolor, molestia o si es una consulta preventiva..."
+          class="w-full p-3.5 rounded-xl bg-surface-container-low border border-outline-variant/50 font-body-md text-sm text-on-surface placeholder:text-secondary/60 focus:outline-none focus:border-primary-container focus:ring-2 focus:ring-secondary-container transition-all resize-y"
+        ></textarea>
+      </div>
+
+      <!-- Submit button con alto contraste accesible (ratio > 5:1) -->
+      <div class="pt-2 flex flex-col items-center gap-3">
+        <button
+          type="submit"
+          class="w-full sm:w-auto px-8 h-13 rounded-xl bg-[#0e6b45] hover:bg-[#0a5234] text-white font-label-md text-base font-bold flex items-center justify-center gap-2.5 shadow-md active:scale-[0.98] transition-all cursor-pointer"
+        >
+          <Icon name="chat" size={22} />
+          <span>Enviar solicitud por WhatsApp</span>
+        </button>
+        <p class="font-body-sm text-xs text-secondary text-center max-w-lg">
+          Al pulsar el botón se abrirá WhatsApp con los datos de tu solicitud listos para enviar. No se recopilan datos en ningún servidor externo.
+        </p>
+      </div>
+    </form>
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section class="px-margin-sm md:px-margin-lg py-6 max-w-7xl mx-auto w-full">
+  <div class="bg-primary-container text-on-primary p-6 md:p-12 rounded-3xl shadow-xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 relative overflow-hidden">
+    <!-- Decorative background radial gradient -->
+    <div class="absolute -right-10 -bottom-10 w-64 h-64 rounded-full bg-[radial-gradient(circle_at_center,rgba(212,230,234,0.25)_0%,transparent_70%)] pointer-events-none"></div>
+
+    <div class="flex flex-col gap-2.5 max-w-2xl relative z-10">
+      <div class="flex items-center gap-2 text-primary-fixed">
+        <Icon name="health_and_safety" size={20} />
+        <span class="font-label-sm text-xs uppercase tracking-wider font-semibold">
+          Tu salud bucal no espera
+        </span>
+      </div>
+      <h3 class="font-headline-lg text-2xl md:text-3xl font-bold leading-tight">
+        Empieza a cuidar tu sonrisa hoy
+      </h3>
+      <p class="font-body-sm text-xs md:text-sm text-on-primary/90 leading-relaxed max-w-xl">
+        Agenda tu consulta diagnóstica personalizada con la {clinica.doctora} y recibe una evaluación completa con instrumental avanzado y el mayor confort.
+      </p>
+    </div>
+
+    <div class="flex flex-col sm:flex-row lg:flex-col gap-3 relative z-10 shrink-0">
+      <a
+        href="#formulario-cita"
+        class="flex items-center justify-center gap-2 px-7 h-12 rounded-xl bg-surface-container-lowest text-primary-container font-label-md text-sm font-bold shadow-md hover:bg-white/90 active:scale-95 transition-all"
+      >
+        <Icon name="calendar_month" size={18} />
+        <span>Agendar cita ahora</span>
+      </a>
+
+      <a
+        href="#ubicacion"
+        class="flex items-center justify-center gap-1.5 text-primary-fixed font-label-md text-xs py-2 hover:underline text-center"
+      >
+        <Icon name="pin_drop" size={16} />
+        <span>Ver ubicación en {clinica.direccion.ciudad}</span>
+      </a>
+    </div>
+  </div>
+</section>

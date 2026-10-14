@@ -1,0 +1,47 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { clinica } from '../data/clinica';
+---
+
+<LegalLayout
+  title={`Política de Cookies | ${clinica.nombre}`}
+  description={`Información sobre el uso de cookies y tecnologías de navegación en ${clinica.nombre}.`}
+>
+  <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary mb-6">
+    Información sobre Cookies
+  </h1>
+
+  <section class="space-y-4 text-on-surface-variant font-body-md text-sm md:text-base leading-relaxed">
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      1. Ausencia de Cookies Propias de Seguimiento
+    </h2>
+    <p>
+      Este sitio web está construido con una arquitectura estática orientada a la privacidad del usuario. <strong>No implementa herramientas analíticas invasivas, píxeles de remarketing publicitario ni cookies de seguimiento conductual</strong>.
+    </p>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      2. Cookies y Servicios de Terceros
+    </h2>
+    <p>
+      El portal incorpora elementos de interacción opcionales provistos por terceros:
+    </p>
+    <ul class="list-disc pl-5 space-y-1">
+      <li><strong>Google Maps:</strong> Se encuentra desactivado de forma predeterminada y solo se inicializa si el usuario hace clic expreso en «Cargar mapa interactivo». Al activarlo, Google puede instalar cookies técnicas y de geolocalización de acuerdo con sus propias políticas.</li>
+      <li><strong>WhatsApp Web / App:</strong> Los enlaces de cita redirigen hacia la plataforma externa de WhatsApp, regulada por sus correspondientes términos de uso y privacidad.</li>
+    </ul>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      3. Marco Normativo y Obligaciones Legales
+    </h2>
+    <p>
+      La ausencia de cookies propias no exime al titular del cumplimiento de las disposiciones vigentes en materia de protección de datos personales y transparencia digital. Esta política se mantendrá actualizada conforme a eventuales incorporaciones técnicas en la plataforma.
+    </p>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      4. Configuración del Navegador
+    </h2>
+    <p>
+      Usted puede restringir, bloquear o borrar las cookies de cualquier portal web mediante la configuración de su navegador (Chrome, Safari, Firefox, Edge, etc.).
+    </p>
+  </section>
+</LegalLayout>

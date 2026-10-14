@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import TrustHighlights from '../components/TrustHighlights.astro';
+import Services from '../components/Services.astro';
+import DoctorProfile from '../components/DoctorProfile.astro';
+import Steps from '../components/Steps.astro';
+import AppointmentForm from '../components/AppointmentForm.astro';
+import Reviews from '../components/Reviews.astro';
+import CtaBanner from '../components/CtaBanner.astro';
+import Faq from '../components/Faq.astro';
+import LocationSchedule from '../components/LocationSchedule.astro';
+import Footer from '../components/Footer.astro';
+import StickyBottomBar from '../components/StickyBottomBar.astro';
+---
+
+<Layout>
+  <Header />
+
+  <main id="main-content" class="flex-1 flex flex-col relative w-full bg-surface">
+    <Hero />
+    <TrustHighlights />
+    <Services />
+    <DoctorProfile />
+    <Steps />
+    <AppointmentForm />
+    <Reviews />
+    <CtaBanner />
+    <Faq />
+    <LocationSchedule />
+  </main>
+
+  <Footer />
+  <StickyBottomBar />
+</Layout>

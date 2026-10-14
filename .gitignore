@@ -1,0 +1,24 @@
+# Build & Dist
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment & Temp
+.env
+.env.*
+!.env.example
+*.log
+npm-debug.log*
+
+# Reports & Cache
+lighthouse-report.json
+.DS_Store
+Thumbs.db
+
+# Design Exports & Scratch
+stitch_export/
+*.zip
+download-fonts.mjs
+download-svgs.mjs

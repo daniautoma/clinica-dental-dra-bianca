@@ -1,0 +1,45 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section id="faq" class="px-margin-sm md:px-margin-lg py-8 md:py-16 max-w-4xl mx-auto w-full flex flex-col gap-6">
+  <div class="flex flex-col gap-1.5 text-center max-w-xl mx-auto">
+    <span class="font-label-sm uppercase tracking-wider text-secondary font-semibold text-xs">
+      Preguntas Frecuentes
+    </span>
+    <h2 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary leading-tight">
+      Resolvemos tus dudas
+    </h2>
+    <p class="font-body-sm text-xs md:text-sm text-on-surface-variant">
+      Información clara para tu tranquilidad y confianza antes de asistir a tu consulta.
+    </p>
+  </div>
+
+  <div class="flex flex-col gap-3" id="faq-container">
+    {clinica.preguntasFrecuentes.map((item, index) => (
+      <div class="bg-surface-container-lowest rounded-2xl shadow-clinical border-clinical overflow-hidden transition-colors">
+        <button
+          type="button"
+          aria-expanded="false"
+          aria-controls={`faq-answer-${index}`}
+          id={`faq-btn-${index}`}
+          class="faq-toggle w-full p-4 md:p-5 text-left flex items-center justify-between gap-3 text-primary font-title-md text-sm md:text-base font-bold cursor-pointer hover:bg-surface-container-low/40 transition-colors"
+        >
+          <span>{item.pregunta}</span>
+          <span class="faq-icon text-secondary transition-transform duration-200 shrink-0">
+            <Icon name="expand_more" size={22} />
+          </span>
+        </button>
+        <div
+          id={`faq-answer-${index}`}
+          role="region"
+          aria-labelledby={`faq-btn-${index}`}
+          class="faq-content hidden px-4 md:px-5 pb-5 pt-1 font-body-sm text-xs md:text-sm text-on-surface-variant leading-relaxed border-t border-outline-variant/10"
+        >
+          {item.respuesta}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

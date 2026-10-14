@@ -1,0 +1,25 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section class="px-margin-sm md:px-margin-lg py-4 max-w-7xl mx-auto w-full">
+  <h2 class="sr-only">Pilares de nuestra atención odontológica</h2>
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+    {clinica.pilaresConfianza.map((pilar) => (
+      <div class="bg-surface-container-lowest p-4 rounded-xl shadow-clinical border-clinical flex flex-col gap-2.5 transition-all hover:-translate-y-0.5 hover:shadow-md">
+        <div class="w-10 h-10 rounded-lg bg-secondary-container flex items-center justify-center text-primary-container shrink-0">
+          <Icon name={pilar.icono} size={22} />
+        </div>
+        <div class="flex flex-col">
+          <h3 class="font-title-md text-sm md:text-base font-bold text-primary leading-tight">
+            {pilar.titulo}
+          </h3>
+          <p class="font-body-sm text-[12px] md:text-sm text-secondary leading-snug pt-1">
+            {pilar.descripcion}
+          </p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

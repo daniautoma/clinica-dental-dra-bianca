@@ -1,0 +1,21 @@
+{
+  "name": "clinica-dental-dra-bianca-hernandez",
+  "version": "1.0.0",
+  "description": "Sitio web oficial de la Clínica Dental Dra. Bianca Nathaly Hernández Flores",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
+    "astro": "^7.3.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^5.9.3"
+  }
+}

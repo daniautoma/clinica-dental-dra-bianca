@@ -1,0 +1,115 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section id="hero" class="px-margin-sm md:px-margin-lg pt-6 md:pt-12 pb-8 md:pb-16 max-w-7xl mx-auto w-full">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+    <!-- Left Column: Copy & CTAs (7 cols desktop) -->
+    <div class="lg:col-span-7 flex flex-col gap-4">
+      <!-- Trust Pill -->
+      <div class="self-start inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary-container text-primary text-xs font-label-md shadow-sm border border-primary/10">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#2A7E64] animate-pulse"></span>
+        <span>Atención dental personalizada y sin dolor</span>
+      </div>
+
+      <!-- Title & Subtitle -->
+      <div class="flex flex-col gap-2.5">
+        <span class="font-label-sm uppercase tracking-widest text-secondary font-semibold text-xs">
+          Clínica Dental Especializada · El Salvador
+        </span>
+        <h1 class="font-headline-xl-mobile md:font-headline-xl text-primary tracking-tight font-bold leading-tight">
+          Tu sonrisa merece un cuidado especial
+        </h1>
+        <p class="font-body-md text-on-surface-variant leading-relaxed text-base md:text-lg max-w-2xl">
+          Conoce la <strong class="text-primary font-semibold">{clinica.nombre}</strong> y descubre un espacio dedicado a tu bienestar y salud bucal en {clinica.direccion.ciudad}, {clinica.direccion.departamento}.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
+        <a
+          href="#formulario-cita"
+          class="flex items-center justify-center gap-2.5 px-7 h-12 rounded-xl bg-primary-container text-on-primary font-label-md text-base shadow-md hover:bg-[#123C47] active:scale-[0.98] transition-all"
+        >
+          <Icon name="calendar_add_on" size={20} />
+          <span>Agendar cita previa</span>
+        </a>
+
+        <a
+          href="#ubicacion"
+          class="flex items-center justify-center gap-2 px-6 h-12 rounded-xl bg-surface-container-high text-primary font-label-md text-base shadow-sm hover:bg-surface-container-highest active:scale-[0.98] transition-all"
+        >
+          <Icon name="near_me" size={20} />
+          <span>Cómo llegar</span>
+        </a>
+      </div>
+
+      <!-- Quick Trust Micro-badges -->
+      <div class="pt-3 flex flex-wrap items-center gap-4 text-xs font-label-sm text-secondary">
+        <div class="flex items-center gap-1.5">
+          <Icon name="check_circle" size={18} class="text-[#2A7E64]" />
+          <span>Trato cálido para toda la familia</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <Icon name="check_circle" size={18} class="text-[#2A7E64]" />
+          <span>Instrumental de alta esterilidad</span>
+        </div>
+        <div class="flex items-center gap-1.5">
+          <Icon name="check_circle" size={18} class="text-[#2A7E64]" />
+          <span>Respuesta ágil por WhatsApp</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Hero Visual Container (5 cols desktop) -->
+    <div class="lg:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-clinical border-clinical bg-surface-container">
+      <!-- Imagen de consultorio o marcador si está pendiente -->
+      <img
+        src="/fotos/consultorio-principal.webp"
+        alt="Consultorio de la Clínica Dental Dra. Bianca Nathaly Hernández Flores"
+        width="640"
+        height="480"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      />
+
+      <!-- Marcador elegante en caso de sustitución pendiente de fotografía -->
+      <div class="hidden absolute inset-0 flex-col items-center justify-center bg-gradient-to-br from-surface-container-low to-secondary-container/40 p-6 text-center">
+        <div class="w-16 h-16 rounded-2xl bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-md mb-3">
+          <Icon name="add_a_photo" size={36} />
+        </div>
+        <span class="font-label-md text-sm text-primary font-bold">Consultorio Odontológico</span>
+        <span class="font-body-sm text-xs text-secondary mt-1 max-w-xs">
+          Fotografía de instalaciones. Colocar en:<br />
+          <code class="px-2 py-0.5 mt-1 inline-block bg-surface-container-lowest rounded text-[11px] font-mono text-primary-container">
+            public/fotos/consultorio-principal.webp
+          </code>
+        </span>
+      </div>
+
+      <!-- Gradiente y badges de Stitch superpuestos -->
+      <div class="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent pointer-events-none"></div>
+      <div class="absolute bottom-3.5 left-3.5 right-3.5 flex items-center justify-between text-on-primary">
+        <div class="flex items-center gap-2 bg-primary/90 px-3.5 py-1.5 rounded-full shadow-sm">
+          <Icon name="verified" size={16} class="text-primary-fixed" />
+          <span class="font-label-sm text-xs text-on-primary font-medium">{clinica.direccion.ciudad}, El Salvador</span>
+        </div>
+        <a
+          href={clinica.direccion.googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Ver reseñas en Google Maps"
+          class="flex items-center gap-1.5 bg-surface-container-lowest text-primary px-3 py-1.5 rounded-full shadow-sm hover:scale-105 transition-transform"
+        >
+          <Icon name="star" size={15} class="text-amber-500" />
+          <span class="font-label-sm font-bold text-xs">5.0</span>
+          <span class="text-[10px] text-secondary font-medium">Google</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

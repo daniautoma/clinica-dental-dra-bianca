@@ -1,0 +1,73 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+const anioActual = new Date().getFullYear();
+---
+
+<footer id="contacto" class="px-margin-sm md:px-margin-lg pt-12 pb-24 md:pb-12 bg-surface-container-highest/60 rounded-t-3xl border-t border-outline-variant/30 mt-8">
+  <div class="max-w-7xl mx-auto flex flex-col gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+      <!-- Columna 1: Marca y descripción -->
+      <div class="md:col-span-5 flex flex-col gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-primary-container flex items-center justify-center text-on-primary shadow-sm">
+            <Icon name="dentistry" size={22} />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-headline-sm text-sm font-bold text-primary leading-tight">
+              {clinica.nombreCorto}
+            </span>
+            <span class="font-label-sm text-[11px] text-secondary">
+              Hernández Flores
+            </span>
+          </div>
+        </div>
+        <p class="font-body-sm text-xs md:text-sm text-on-surface-variant leading-relaxed max-w-sm">
+          Dedicados a devolver la confianza y luminosidad a tu sonrisa a través de un ejercicio odontológico ético, moderno y profundamente empático en El Salvador.
+        </p>
+      </div>
+
+      <!-- Columna 2: Navegación -->
+      <div class="md:col-span-3 flex flex-col gap-2.5">
+        <span class="font-title-md text-xs font-bold text-primary uppercase tracking-wider">
+          Navegación
+        </span>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#hero">Inicio</a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#servicios">Servicios</a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#doctora">La Doctora</a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#pasos-cita">Cómo Agendar</a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#opiniones">Opiniones</a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="#ubicacion">Ubicación</a>
+      </div>
+
+      <!-- Columna 3: Legal & Salud -->
+      <div class="md:col-span-4 flex flex-col gap-2.5">
+        <span class="font-title-md text-xs font-bold text-primary uppercase tracking-wider">
+          Información Legal
+        </span>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="/aviso-legal">
+          Aviso Legal
+        </a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="/privacidad">
+          Política de Privacidad
+        </a>
+        <a class="font-body-sm text-xs md:text-sm text-on-surface-variant hover:text-primary transition-colors" href="/cookies">
+          Información sobre Cookies
+        </a>
+        <span class="font-body-sm text-xs text-primary font-medium pt-1">
+          {clinica.direccion.linea1}, {clinica.direccion.ciudad}, El Salvador.
+        </span>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-3 text-center sm:text-left">
+      <p class="font-body-sm text-[11px] md:text-xs text-on-surface-variant">
+        © {anioActual} {clinica.nombre}. Todos los derechos reservados.
+      </p>
+      <p class="font-body-sm text-[11px] md:text-xs text-on-surface-variant">
+        Sitio web estático optimizado con Astro & Tailwind CSS.
+      </p>
+    </div>
+  </div>
+</footer>

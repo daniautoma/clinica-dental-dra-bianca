@@ -1,0 +1,46 @@
+---
+import LegalLayout from '../layouts/LegalLayout.astro';
+import { clinica } from '../data/clinica';
+---
+
+<LegalLayout
+  title={`Política de Privacidad | ${clinica.nombre}`}
+  description={`Política de privacidad y protección de datos personales de ${clinica.nombre}.`}
+>
+  <h1 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary mb-6">
+    Política de Privacidad
+  </h1>
+
+  <section class="space-y-4 text-on-surface-variant font-body-md text-sm md:text-base leading-relaxed">
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      1. Responsable del Tratamiento
+    </h2>
+    <p>
+      El responsable del tratamiento de los datos que voluntariamente suministre el usuario es <strong>{clinica.nombre}</strong> ({clinica.doctora}), con domicilio profesional en {clinica.direccion.linea1}, {clinica.direccion.ciudad}, El Salvador.
+    </p>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      2. Datos Solicitados y Finalidad
+    </h2>
+    <p>
+      A través del formulario «Pide tu cita», el usuario introduce voluntariamente su nombre, teléfono, servicio de interés y notas sobre su consulta.
+    </p>
+    <div class="p-3.5 rounded-xl bg-secondary-container/40 border border-primary/10 text-xs md:text-sm text-primary">
+      <strong>Principio de Privacidad Técnica:</strong> Este sitio web opera como un canal estático. El formulario web <em>no envía ni almacena</em> datos en servidores ni bases de datos intermedias; la información es codificada en el navegador del usuario y transmitida directamente a través de la aplicación oficial de WhatsApp con el fin exclusivo de coordinar su cita odontológica.
+    </div>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      3. Secreto Profesional y Datos de Salud
+    </h2>
+    <p>
+      Cualquier dato o antecedente clínico compartido durante la comunicación profesional está amparado bajo el deber estricto de secreto profesional odontológico y la normativa sanitaria aplicable en El Salvador.
+    </p>
+
+    <h2 class="font-title-md text-lg font-bold text-primary mt-6">
+      4. Derechos del Paciente
+    </h2>
+    <p>
+      El paciente puede solicitar la rectificación, supresión o actualización de sus datos de contacto en cualquier momento dirigiéndose al número de atención {clinica.telefono} o acudiendo a las instalaciones de la clínica.
+    </p>
+  </section>
+</LegalLayout>

@@ -1,0 +1,150 @@
+---
+import { clinica } from '../data/clinica';
+import Icon from './Icon.astro';
+---
+
+<section id="ubicacion" class="px-margin-sm md:px-margin-lg py-8 md:py-16 max-w-7xl mx-auto w-full flex flex-col gap-6">
+  <div class="flex flex-col gap-1.5 max-w-xl">
+    <span class="font-label-sm uppercase tracking-wider text-secondary font-semibold text-xs">
+      Encuéntranos
+    </span>
+    <h2 class="font-headline-lg text-2xl md:text-3xl font-bold text-primary leading-tight">
+      Ubicación y Horarios de Atención
+    </h2>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+    <!-- Info Card (6 cols desktop) -->
+    <div class="lg:col-span-6 bg-surface-container-lowest p-6 md:p-8 rounded-3xl shadow-clinical border-clinical flex flex-col gap-5">
+      <!-- Address -->
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+          <Icon name="pin_drop" size={22} />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-title-md text-sm md:text-base font-bold text-primary">Sede Clínica</span>
+          <p class="font-body-sm text-xs md:text-sm text-on-surface-variant leading-relaxed pt-0.5">
+            {clinica.direccion.linea1}, {clinica.direccion.ciudad}, {clinica.direccion.departamento}, {clinica.direccion.pais}.
+          </p>
+          <span class="font-mono text-[11px] text-secondary mt-1">
+            Plus Code: {clinica.direccion.plusCode}
+          </span>
+        </div>
+      </div>
+
+      <!-- Schedule -->
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+          <Icon name="schedule" size={22} />
+        </div>
+        <div class="flex flex-col flex-1">
+          <div class="flex items-center justify-between">
+            <span class="font-title-md text-sm md:text-base font-bold text-primary">Horario de Consulta</span>
+            <span class="text-[11px] font-label-sm text-secondary">Hora de El Salvador (GMT-6)</span>
+          </div>
+          <div class="flex flex-col gap-1 pt-1.5 text-xs md:text-sm text-on-surface-variant">
+            {clinica.horarios.map((h) => (
+              <div class="flex items-center justify-between py-0.5 border-b border-outline-variant/10 last:border-0">
+                <span class="font-medium text-primary">{h.nombreDia}:</span>
+                <span class={h.cerrado ? "text-error font-medium" : "text-on-surface"}>{h.textoVisible}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- Direct Channels -->
+      <div class="flex items-start gap-3.5">
+        <div class="w-10 h-10 rounded-xl bg-secondary-container flex items-center justify-center text-primary-container shrink-0 mt-0.5">
+          <Icon name="contact_support" size={22} />
+        </div>
+        <div class="flex flex-col">
+          <span class="font-title-md text-sm md:text-base font-bold text-primary">Canales de Atención</span>
+          <div class="flex flex-wrap items-center gap-4 pt-1.5">
+            <a
+              href={`tel:${clinica.telefonoLlamada}`}
+              class="inline-flex items-center gap-1.5 font-label-md text-xs md:text-sm text-primary hover:underline"
+            >
+              <Icon name="call" size={16} class="text-secondary" />
+              <span>{clinica.telefono}</span>
+            </a>
+            <a
+              href={`https://wa.me/${clinica.whatsappNumeroLimpio}?text=Hola%20Dra.%20Bianca,%20quisiera%20consultar%20por%20una%20cita%20dental`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1.5 font-label-md text-xs md:text-sm text-[#0f532b] hover:underline"
+            >
+              <Icon name="chat" size={16} />
+              <span>WhatsApp Directo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+        <a
+          href={clinica.direccion.googleMapsUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 h-12 rounded-xl bg-primary-container text-on-primary font-label-md text-xs font-bold shadow-sm hover:bg-[#123C47] active:scale-95 transition-all"
+        >
+          <Icon name="directions" size={18} />
+          <span>Cómo llegar (Google Maps)</span>
+        </a>
+
+        <a
+          href={clinica.direccion.wazeUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-2 h-12 rounded-xl bg-secondary-container text-primary font-label-md text-xs font-bold shadow-sm hover:bg-secondary-container/80 active:scale-95 transition-all"
+        >
+          <Icon name="near_me" size={18} />
+          <span>Navegar con Waze</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Map Container (6 cols desktop) -->
+    <div class="lg:col-span-6 flex flex-col gap-3">
+      <div
+        id="mapa-contenedor"
+        class="w-full h-80 sm:h-96 lg:h-[450px] rounded-3xl overflow-hidden shadow-clinical border-clinical bg-surface-container relative flex flex-col items-center justify-center p-6 text-center"
+      >
+        <!-- Map Lazy Placeholder -->
+        <div class="absolute inset-0 bg-gradient-to-br from-surface-container-low via-surface-container to-secondary-container/30 pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col items-center gap-3 max-w-sm">
+          <div class="w-14 h-14 rounded-2xl bg-surface-container-lowest flex items-center justify-center text-primary-container shadow-md">
+            <Icon name="map" size={32} />
+          </div>
+          <div class="flex flex-col">
+            <span class="font-title-md text-base font-bold text-primary">Mapa Interactivo de la Clínica</span>
+            <span class="font-body-sm text-xs text-secondary mt-1">
+              {clinica.direccion.linea1}, {clinica.direccion.ciudad}
+            </span>
+          </div>
+
+          <button
+            type="button"
+            id="cargar-mapa-btn"
+            class="mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-container text-on-primary font-label-md text-xs font-semibold shadow-md hover:bg-[#123C47] active:scale-95 transition-all cursor-pointer"
+          >
+            <Icon name="explore" size={18} />
+            <span>Cargar mapa interactivo</span>
+          </button>
+          <span class="text-[11px] text-secondary">
+            Protección de privacidad: Google Maps solo se carga al solicitarlo
+          </span>
+        </div>
+
+        <div class="absolute bottom-3 left-3 bg-surface-container-lowest px-3 py-1.5 rounded-xl shadow-sm flex items-center gap-2 border border-white/40">
+          <Icon name="location_on" size={16} class="text-primary" />
+          <span class="font-label-sm text-xs font-bold text-primary">
+            {clinica.direccion.ciudad}, {clinica.direccion.departamento}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

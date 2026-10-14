@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500 800;
+  font-display: swap;
+  src: url('/fonts/manrope-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/fonts/dmsans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@theme {
+  --color-surface: #f5faff;
+  --color-surface-dim: #d4dbe1;
+  --color-surface-bright: #f5faff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eef4fb;
+  --color-surface-container: #e8eff5;
+  --color-surface-container-high: #e2e9ef;
+  --color-surface-container-highest: #dce3ea;
+  --color-on-surface: #161c21;
+  --color-on-surface-variant: #40484b;
+  --color-inverse-surface: #2a3136;
+  --color-inverse-on-surface: #ebf2f8;
+  --color-outline: #71787b;
+  --color-outline-variant: #c0c8cb;
+  --color-surface-tint: #346573;
+  --color-primary: #003541;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #174c5a;
+  --color-on-primary-container: #8bbbcc;
+  --color-inverse-primary: #9dcedf;
+  --color-secondary: #516165;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #d4e6ea;
+  --color-on-secondary-container: #56676b;
+  --color-tertiary: #2d302f;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #444645;
+  --color-on-tertiary-container: #b2b4b2;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-primary-fixed: #b9eafb;
+  --color-primary-fixed-dim: #9dcedf;
+  --color-on-primary-fixed: #001f27;
+  --color-on-primary-fixed-variant: #184d5b;
+  --color-secondary-fixed: #d4e6ea;
+  --color-secondary-fixed-dim: #b8cace;
+  --color-on-secondary-fixed: #0e1e21;
+  --color-on-secondary-fixed-variant: #39494d;
+  --color-background: #f5faff;
+  --color-on-background: #161c21;
+  --color-surface-variant: #dce3ea;
+
+  --font-manrope: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-dm-sans: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --spacing-margin-sm: 1rem;
+  --spacing-margin: 1.5rem;
+  --spacing-margin-lg: 3rem;
+  --spacing-gutter-sm: 1rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-lg: 2rem;
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+}
+
+/* Tipografías semánticas de Google Stitch */
+.font-display-lg {
+  font-family: var(--font-manrope);
+  font-size: 56px;
+  line-height: 64px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.font-display-lg-mobile {
+  font-family: var(--font-manrope);
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.font-headline-xl {
+  font-family: var(--font-manrope);
+  font-size: 40px;
+  line-height: 48px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.font-headline-xl-mobile {
+  font-family: var(--font-manrope);
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.font-headline-lg {
+  font-family: var(--font-manrope);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.font-headline-md {
+  font-family: var(--font-manrope);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.font-headline-sm {
+  font-family: var(--font-manrope);
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.font-title-md {
+  font-family: var(--font-manrope);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.font-body-lg {
+  font-family: var(--font-dm-sans);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+
+.font-body-md {
+  font-family: var(--font-dm-sans);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+.font-body-sm {
+  font-family: var(--font-dm-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.font-label-md {
+  font-family: var(--font-dm-sans);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.font-label-sm {
+  font-family: var(--font-dm-sans);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* Sombra clínica de nivel 1 definida en DESIGN.md */
+.shadow-clinical {
+  box-shadow: 0 8px 24px -4px rgba(23, 76, 90, 0.06), 0 2px 6px -1px rgba(23, 76, 90, 0.03);
+}
+
+.border-clinical {
+  border: 1px solid rgba(23, 76, 90, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-dm-sans);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+}

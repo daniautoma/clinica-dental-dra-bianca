@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import { clinica } from '../data/clinica';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+}
+
+const {
+  title = clinica.meta.tituloSeo,
+  description = clinica.meta.descripcionSeo,
+  canonicalUrl = clinica.meta.urlCanonica
+} = Astro.props;
+
+// Construir JSON-LD Schema.org Dentist
+const schemaDentist = {
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": clinica.nombre,
+  "description": clinica.meta.descripcionSeo,
+  "image": `${clinica.meta.dominio}/fotos/consultorio-principal.webp`,
+  "url": clinica.meta.dominio,
+  "telephone": clinica.telefono,
+  "priceRange": "$$",
+  "medicalSpecialty": "Dentistry",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": clinica.direccion.linea1,
+    "addressLocality": clinica.direccion.ciudad,
+    "addressRegion": clinica.direccion.departamento,
+    "addressCountry": "SV"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": clinica.direccion.coordenadas.lat,
+    "longitude": clinica.direccion.coordenadas.lng
+  },
+  "openingHoursSpecification": clinica.horarios
+    .filter(h => !h.cerrado && h.intervalos.length > 0)
+    .map(h => ({
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"][h.diaSemana],
+      "opens": h.intervalos[0].open,
+      "closes": h.intervalos[0].close
+    }))
+};
+---
+
+<!doctype html>
+<html lang="es" class="h-full bg-surface">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Redes Sociales -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content={clinica.nombre} />
+    <meta property="og:locale" content="es_SV" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Precarga de fuentes locales críticas para evitar FOIT y CLS -->
+    <link rel="preload" href="/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dmsans-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Schema.org JSON-LD para SEO local -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaDentist)} />
+  </head>
+  <body class="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col selection:bg-secondary-container selection:text-primary">
+    <!-- Enlace de salto de accesibilidad -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary-container focus:text-on-primary focus:rounded-lg focus:shadow-lg focus:font-label-md">
+      Saltar al contenido principal
+    </a>
+
+    <slot />
+
+    <script>
+      import { inicializarInteracciones } from '../scripts/appointment';
+      if (typeof window !== 'undefined') {
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(() => inicializarInteracciones());
+        } else {
+          setTimeout(inicializarInteracciones, 50);
+        }
+      }
+    </script>
+  </body>
+</html>
