@@ -150,28 +150,4 @@ export function inicializarInteracciones(): void {
     });
   }
 
-  // 6. Carga diferida del Mapa interactivo (Lazy Map)
-  const mapContainer = document.getElementById('mapa-contenedor');
-  const mapTriggerBtn = document.getElementById('cargar-mapa-btn');
-  if (mapContainer && mapTriggerBtn) {
-    mapTriggerBtn.addEventListener('click', () => {
-      const lat = clinica.direccion.coordenadas.lat;
-      const lng = clinica.direccion.coordenadas.lng;
-      const iframeUrl = `https://maps.google.com/maps?q=${lat},${lng}&hl=es&z=16&output=embed`;
-      
-      mapContainer.innerHTML = `
-        <iframe
-          src="${iframeUrl}"
-          width="100%"
-          height="100%"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Ubicación en Google Maps de ${clinica.nombre}"
-          class="w-full h-full rounded-2xl"
-        ></iframe>
-      `;
-    });
-  }
 }
