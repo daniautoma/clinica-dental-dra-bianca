@@ -49,7 +49,7 @@ export const servicesData = [
   {
     id: "evaluacion-diagnostica",
     title: "Evaluación Clínica Integral",
-    description: "Chequeo completo con cámara intraoral digital, diagnóstico preventivo y plan de cuidado personalizado por la Dra. Bianca Hernández.",
+    description: "Chequeo completo con cámara intraoral digital, diagnóstico preventivo y plan de cuidado personalizado por la Dra. Elena Vega.",
     icon: "🩺",
     image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=800&q=80",
     badge: "Primera Consulta",
@@ -61,7 +61,7 @@ export const testimonials = [
   {
     id: 1,
     name: "Lic. Claudia Ramos",
-    review: "Excelente atención de la Dra. Bianca. Siempre le tuve mucho temor a las consultas dentales, pero su calidez y delicadeza me dieron total tranquilidad. El blanqueamiento quedó espectacular.",
+    review: "Excelente atención de la Dra. Elena. Siempre le tuve mucho temor a las consultas dentales, pero su calidez y delicadeza me dieron total tranquilidad. El blanqueamiento quedó espectacular.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/44.jpg",
     role: "Paciente de Estética Dental"
@@ -77,7 +77,7 @@ export const testimonials = [
   {
     id: 3,
     name: "Dra. Sofía Rodríguez",
-    review: "Increíble profesionalismo. Me colocaron alineadores transparentes y el seguimiento digital ha sido perfecto. Se nota el compromiso y pasión que la Dra. Bianca le pone a cada paciente.",
+    review: "Increíble profesionalismo. Me colocaron alineadores transparentes y el seguimiento digital ha sido perfecto. Se nota el compromiso y pasión que la Dra. Elena le pone a cada paciente.",
     rating: 5,
     avatar: "https://randomuser.me/api/portraits/women/68.jpg",
     role: "Paciente de Ortodoncia"
@@ -93,7 +93,7 @@ export const faqsData = [
   {
     id: 2,
     question: "¿Los procedimientos de estética o blanqueamiento causan dolor?",
-    answer: "No. En la clínica de la Dra. Bianca utilizamos tecnología de vanguardia y protocolos de anestesia localizada y geles desensibilizantes que garantizan una experiencia totalmente confortable e indolora."
+    answer: "No. En la clínica de la Dra. Elena utilizamos tecnología de vanguardia y protocolos de anestesia localizada y geles desensibilizantes que garantizan una experiencia totalmente confortable e indolora."
   },
   {
     id: 3,

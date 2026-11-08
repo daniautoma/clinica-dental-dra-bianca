@@ -1,7 +1,7 @@
 {
-  "name": "clinica-dental-dra-bianca-hernandez",
+  "name": "clinica-dental-novasmile-demo",
   "version": "1.0.0",
-  "description": "Sitio web oficial de la Clínica Dental Dra. Bianca Nathaly Hernández Flores",
+  "description": "Sitio web de demostración para clínica dental y estética médica NovaSmile",
   "type": "module",
   "scripts": {
     "dev": "astro dev",

@@ -22,3 +22,6 @@ stitch_export/
 *.zip
 download-fonts.mjs
 download-svgs.mjs
+
+# Respaldo privado con datos reales (no subir a repositorios públicos)
+src/data/clinica.real.ts

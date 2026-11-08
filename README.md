@@ -1,6 +1,8 @@
-# Clínica Dental Dra. Bianca Nathaly Hernández Flores
+# Clínica Dental NovaSmile (Sitio Web Demo)
 
-Sitio web oficial de la **Clínica Dental Dra. Bianca Nathaly Hernández Flores**, ubicada en Cojutepeque, Cuscatlán, El Salvador.
+Sitio web demostrativo y plantilla de alta conversión para clínicas odontológicas y estéticas médicas, ambientado con la identidad ficticia de **Clínica Dental NovaSmile / Dra. Elena Vega Mendoza**, en San Salvador, El Salvador.
+
+> **Nota:** Para alternar entre la versión demo y los datos reales para presentación comercial, consultar `src/data/clinica.real.ts`.
 
 Desarrollado con base en el diseño aprobado de **Google Stitch**, construido con arquitectura estática ultra-optimizada en **Astro**, **Tailwind CSS** y **TypeScript**.
 
@@ -48,4 +50,4 @@ npm run preview
 
 ## 📄 Licencia
 
-Todos los derechos reservados © Clínica Dental Dra. Bianca Nathaly Hernández Flores.
+Todos los derechos reservados © Clínica Dental NovaSmile (Demo).

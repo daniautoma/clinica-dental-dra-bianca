@@ -64,7 +64,7 @@ export function inicializarInteracciones(): void {
       }
 
       // Componer mensaje de WhatsApp formal y amigable
-      let mensaje = `¡Hola Dra. Bianca Nathaly! 👋\n`;
+      let mensaje = `¡Hola Dra. Elena! 👋\n`;
       mensaje += `Deseo solicitar una cita en la Clínica Dental:\n\n`;
       mensaje += `• *Paciente:* ${nombre}\n`;
       mensaje += `• *Teléfono de contacto:* ${telefono}\n`;

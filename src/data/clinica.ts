@@ -82,27 +82,27 @@ export interface DatosClinica {
 }
 
 export const clinica: DatosClinica = {
-  nombre: "Clínica Dental Dra. Bianca Nathaly Hernández Flores",
-  nombreCorto: "Clínica Dental Dra. Bianca",
-  doctora: "Dra. Bianca Nathaly Hernández Flores",
-  tituloProfesional: "Odontología General & Estética Dental",
-  telefono: "+503 7524 0578",
-  telefonoLlamada: "+50375240578",
-  whatsapp: "+503 7524 0578",
-  whatsappNumeroLimpio: "50375240578",
-  email: "contacto@clinicadentaldrahernandez.com",
+  nombre: "Clínica Dental NovaSmile",
+  nombreCorto: "Clínica NovaSmile",
+  doctora: "Dra. Elena Vega Mendoza",
+  tituloProfesional: "Odontología Integral & Armonización Orofacial",
+  telefono: "+503 2200 1234",
+  telefonoLlamada: "+50322001234",
+  whatsapp: "+503 7000 0000",
+  whatsappNumeroLimpio: "50370000000",
+  email: "contacto@novasmiledental.com",
   direccion: {
-    linea1: "Calle Dr. José Matías Delgado",
-    ciudad: "Cojutepeque",
-    departamento: "Cuscatlán",
+    linea1: "Av. Las Camelias #124, Col. San Benito",
+    ciudad: "San Salvador",
+    departamento: "San Salvador",
     pais: "El Salvador",
-    plusCode: "P3C7+WGH Cojutepeque",
+    plusCode: "8F4W+7G San Salvador",
     coordenadas: {
-      lat: 13.7214,
-      lng: -88.9358
+      lat: 13.6934,
+      lng: -89.2392
     },
-    googleMapsUrl: "https://www.google.com/maps/place/Clinica+Dental+Dra.+Bianca+Nathaly+Hernandez+Flores/",
-    wazeUrl: "https://waze.com/ul?ll=13.7214,-88.9358&navigate=yes"
+    googleMapsUrl: "https://maps.google.com/?q=13.6934,-89.2392",
+    wazeUrl: "https://waze.com/ul?ll=13.6934,-89.2392&navigate=yes"
   },
   zonaHoraria: "America/El_Salvador",
   horarios: [
@@ -266,7 +266,7 @@ export const clinica: DatosClinica = {
       id: "resena-1",
       nombre: "Claudia Ramos",
       rol: "Paciente Verificado en Google Maps",
-      texto: "Excelente atención de la Dra. Bianca. Siempre he tenido fobia al dentista y ella me tuvo una paciencia increíble. El tratamiento de caries fue completamente indoloro. ¡Super recomendada!",
+      texto: "Excelente atención de la Dra. Elena. Siempre he tenido fobia al dentista y ella me tuvo una paciencia increíble. El tratamiento de caries fue completamente indoloro. ¡Super recomendada!",
       puntuacion: 5,
       iniciales: "CR"
     },
@@ -314,9 +314,9 @@ export const clinica: DatosClinica = {
     }
   ],
   meta: {
-    dominio: "https://clinicadentaldrahernandez.com",
-    tituloSeo: "Clínica Dental Dra. Bianca Nathaly Hernández Flores | Odontología en El Salvador",
-    descripcionSeo: "Atención odontológica integral, estética y preventiva en El Salvador por la Dra. Bianca Nathaly Hernández Flores. Pide tu cita fácil por WhatsApp.",
-    urlCanonica: "https://clinicadentaldrahernandez.com"
+    dominio: "https://novasmiledental.com",
+    tituloSeo: "Clínica Dental NovaSmile | Dra. Elena Vega Mendoza | Odontología en El Salvador",
+    descripcionSeo: "Atención odontológica integral, estética y preventiva en San Salvador por la Dra. Elena Vega Mendoza. Solicita tu cita fácilmente en línea.",
+    urlCanonica: "https://novasmiledental.com"
   }
 };
